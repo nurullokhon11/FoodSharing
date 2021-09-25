@@ -1,0 +1,23 @@
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="title_text_size"> 20sp </dimen>
+    <dimen name="sub_title_text_size"> 15sp </dimen>
+
+    <!-- Margins -->
+    <dimen name="buttons_text_margin"> 10dp </dimen>
+    <dimen name="big_text_margin"> 25dp </dimen>
+
+    <!-- Sizes -->
+    <dimen name="auth_icon_height"> 450dp </dimen>
+    <dimen name="text_space"> 5dp </dimen>
+    <dimen name="xs_padding"> 8dp </dimen>
+    <dimen name="s_padding"> 12dp </dimen>
+    <dimen name="m_padding"> 15dp </dimen>
+    <dimen name="l_padding"> 20dp </dimen>
+    <dimen name="xl_padding"> 30dp </dimen>
+    <dimen name="xxl_padding"> 40dp </dimen>
+    <dimen name="food_ad_height"> 150dp </dimen>
+</resources>

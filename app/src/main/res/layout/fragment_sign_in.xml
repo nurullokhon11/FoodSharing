@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    tools:context=".ui.fragment.SignUpFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/email_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/xxl_padding"
+            android:layout_marginVertical="@dimen/xxl_padding"
+            android:autofillHints="email"
+            android:background="@drawable/edittext_input_white"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="@dimen/xs_padding"
+            android:paddingStart="@dimen/l_padding"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_imageview"
+            app:layout_constraintBottom_toTopOf="@id/password_edittext"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/password_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/xxl_padding"
+            android:layout_marginBottom="@dimen/xl_padding"
+            android:autofillHints="password"
+            android:background="@drawable/edittext_input_white"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingVertical="@dimen/xs_padding"
+            android:paddingStart="@dimen/l_padding"
+            app:layout_constraintBottom_toTopOf="@id/signin_button"
+            app:layout_constraintEnd_toEndOf="@id/email_edittext"
+            app:layout_constraintStart_toStartOf="@id/email_edittext"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:id="@+id/signin_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/xxl_padding"
+            android:background="@drawable/button_orange_rounded"
+            android:text="@string/sign_in"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/email_edittext"
+            app:layout_constraintStart_toStartOf="@id/email_edittext"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/sign_in_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:contentDescription="@string/sign_up"
+            android:src="@drawable/sign_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/navigation_lenta"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_notification"
+        android:icon="@drawable/ic_notification"
+        android:title="@string/navigation_information"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/ic_plus"
+        android:title="@string/navigation_add"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_groceries"
+        android:icon="@drawable/ic_groceries"
+        android:title="@string/navigation_groceries"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_map"
+        android:icon="@drawable/ic_placeholder"
+        android:title="@string/navigation_map"
+        app:showAsAction="ifRoom" />
+
+</menu>

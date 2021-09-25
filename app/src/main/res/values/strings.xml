@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">FoodSharing</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- Bottom navigation titles -->
+    <string name="navigation_lenta"> Лента </string>
+    <string name="navigation_information"> Информация </string>
+    <string name="navigation_add"> Добавить </string>
+    <string name="navigation_groceries"> Продукты </string>
+    <string name="navigation_map"> Карта </string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Auth activity strings -->
+    <string name="auth_about_text"> Делитесь готовой едой, продуктами, резервируйте и предлагайте свое! </string>
+    <string name="sign_in"> Войти </string>
+    <string name="sign_up"> Регистрация </string>
+    <string name="email"> Почта </string>
+    <string name="phone"> Телефон </string>
+    <string name="password"> Пароль </string>
+    <string name="name"> Обращение к вам (username) </string>
+    <string name="nickname"> Ник в соц. сетях</string>
+
+    <string name="reserved"> Уже зарезервировано! </string>
+    <string name="title_activity_map">Map</string>
+
+    <string name="product_name"> Название продукта </string>
+    <string name="product_description"> Описание </string>
+    <string name="product_address"> Адрес </string>
+    <string name="product_type_name"> Тип </string>
+    <string name="product_weight"> Вес </string>
+    <string name="product_weight_gram"> Вес (в граммах): %1$d г </string>
+    <string name="product_image"> Ссылка на изображение </string>
+    <string name="product_exp_date"> Срок годности (дд.мм.гггг) </string>
+    <string name="product_exp_date_till"> Срок годности: до %1$s </string>
+    <string name="add"> Добавить </string>
+</resources>

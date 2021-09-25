@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/m_padding">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/product_type_name" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/m_padding"/>
+
+    <EditText
+        android:id="@+id/textview_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_padding"
+        android:hint="@string/product_name" />
+
+    <EditText
+        android:id="@+id/textview_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_padding"
+        android:hint="@string/product_description" />
+
+    <EditText
+        android:id="@+id/textview_imageurl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_padding"
+        android:hint="@string/product_image" />
+
+    <EditText
+        android:id="@+id/textview_weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_padding"
+        android:hint="@string/product_weight"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/textview_exp_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_padding"
+        android:hint="@string/product_exp_date"
+        android:inputType="date"/>
+
+    <TextView
+        android:id="@+id/textview_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_space"
+        android:layout_marginTop="@dimen/m_padding"
+        android:hint="@string/product_address"
+        android:textSize="@dimen/title_text_size" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/m_padding"
+        android:background="@drawable/border"
+        android:padding="@dimen/s_padding"
+        android:text="@string/add" />
+
+</LinearLayout>
