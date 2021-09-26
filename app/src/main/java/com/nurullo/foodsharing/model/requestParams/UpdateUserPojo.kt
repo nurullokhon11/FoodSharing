@@ -1,12 +1,9 @@
-package com.nurullo.foodsharing.model.response
+package com.nurullo.foodsharing.model.requestParams
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
-
 import com.google.gson.annotations.SerializedName
 
-class UserPojo(username: String, email: String, id: String, nickname: String, phone: String, foodAds: List<FoodAdPojo>) {
+class UpdateUserPojo(username: String, email: String, nickname: String, phone: String) {
     @SerializedName("username")
     @Expose
     var username: String = username
@@ -19,13 +16,6 @@ class UserPojo(username: String, email: String, id: String, nickname: String, ph
         get() = field
         set(value) { field = value }
 
-    @PrimaryKey
-    @SerializedName("id")
-    @Expose
-    var id: String = id
-        get() = field
-        set(value) { field = value }
-
     @SerializedName("nickname")
     @Expose
     var nickname: String = nickname
@@ -35,12 +25,6 @@ class UserPojo(username: String, email: String, id: String, nickname: String, ph
     @SerializedName("phone")
     @Expose
     var phone: String = phone
-        get() = field
-        set(value) { field = value }
-
-    @SerializedName("foodAds")
-    @Expose
-    var foodAds: List<FoodAdPojo> = foodAds
         get() = field
         set(value) { field = value }
 }

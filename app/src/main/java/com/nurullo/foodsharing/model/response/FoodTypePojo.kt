@@ -1,9 +1,11 @@
 package com.nurullo.foodsharing.model.response
 
+import androidx.room.Entity
 import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "foodtype")
 class FoodTypePojo(mongo: String, n: String, id: Long) {
     @SerializedName("_id")
     @Expose
