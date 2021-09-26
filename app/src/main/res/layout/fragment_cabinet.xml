@@ -36,9 +36,11 @@
             android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m_padding"
+            android:layout_marginTop="@dimen/l_padding"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/email"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/username" />
 
@@ -46,7 +48,6 @@
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/s_padding"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,9 +57,11 @@
             android:id="@+id/tv_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m_padding"
+            android:layout_marginTop="@dimen/l_padding"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/nickname"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/email" />
 
@@ -66,7 +69,6 @@
             android:id="@+id/nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/s_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_nickname" />
@@ -75,9 +77,11 @@
             android:id="@+id/tv_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m_padding"
+            android:layout_marginTop="@dimen/l_padding"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/phone"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_text_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nickname" />
 
@@ -85,7 +89,6 @@
             android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/s_padding"
             android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

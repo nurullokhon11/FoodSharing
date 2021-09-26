@@ -49,6 +49,18 @@ public class SessionManager {
         editor.apply();
     }
 
+    public String getPhone() {
+        prefs = context.getSharedPreferences(Constants.MY_SETTINGS, Context.MODE_PRIVATE);
+        return prefs.getString(Constants.PHONE, "");
+    }
+
+    public void savePhone(String phone) {
+        prefs = context.getSharedPreferences(Constants.MY_SETTINGS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Constants.PHONE, phone);
+        editor.apply();
+    }
+
     public String getUserId() {
         prefs = context.getSharedPreferences(Constants.MY_SETTINGS, Context.MODE_PRIVATE);
         return prefs.getString(Constants.USER_ID, "");

@@ -28,7 +28,7 @@ class UserViewModel(repository: UserRepository) : ViewModel() {
         repository.loginUser(authParams, object : Callback<UserPojo> {
             override fun onResponse(call: Call<UserPojo>, response: Response<UserPojo>) {
                 if (response.code() == 200) {
-                    repository.saveUserToDB(response.body()!!)
+                   // repository.saveUserToDB(response.body()!!)
                     successLiveData.postValue(1L)
                 } else {
                     successLiveData.postValue(0L)
@@ -42,8 +42,13 @@ class UserViewModel(repository: UserRepository) : ViewModel() {
         })
     }
 
+    fun saveUserData(userPojo: UserPojo) {
+        //System.out.println("HERE INSERT")
+        //repository.saveUserToDB(userPojo)
+    }
+
     fun getUserData() {
-        userMutableLiveData.postValue(repository.getUserInfoFromDB().value)
+       // userMutableLiveData.postValue(repository.getUserInfoFromDB().value)
     }
 
     val user: LiveData<UserPojo>

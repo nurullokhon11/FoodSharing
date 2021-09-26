@@ -18,8 +18,8 @@ class HomeViewModel(repository: FoodAdRepository) : ViewModel() {
         foodAdsMutableLiveData = MutableLiveData<FoodAdsResponse>()
     }
 
-    fun getAllFoodAds() {
-        repository.getFoodAds(-1L, object : Callback<FoodAdsResponse?> {
+    fun getAllFoodAds(type: Long?) {
+        repository.getFoodAds(type, object : Callback<FoodAdsResponse?> {
             override fun onResponse(
                 call: Call<FoodAdsResponse?>,
                 response: Response<FoodAdsResponse?>
@@ -27,7 +27,9 @@ class HomeViewModel(repository: FoodAdRepository) : ViewModel() {
                 foodAdsMutableLiveData.postValue(response.body())
             }
 
-            override fun onFailure(call: Call<FoodAdsResponse?>, t: Throwable) {}
+            override fun onFailure(call: Call<FoodAdsResponse?>, t: Throwable) {
+                System.out.println(t.toString() + " message error")
+            }
         })
     }
 

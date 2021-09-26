@@ -135,6 +135,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sep" />
 
+        <Button
+            android:id="@+id/reserve_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/s_padding"
+            android:layout_marginStart="@dimen/s_padding"
+            android:background="@drawable/border"
+            android:textAllCaps="false"
+            android:padding="@dimen/s_padding"
+            android:text="@string/reserve" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

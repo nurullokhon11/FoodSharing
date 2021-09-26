@@ -34,7 +34,7 @@
     <string name="product_address"> Адрес </string>
     <string name="product_type_name"> Тип </string>
     <string name="product_weight"> Вес </string>
-    <string name="owner"> Владелец %1$s </string>
+    <string name="owner">&lt;b>Владелец %1$s&lt;/b></string>
     <string name="product_weight_gram"> Вес (в граммах): %1$d г </string>
     <string name="product_image"> Ссылка на изображение </string>
     <string name="product_exp_date"> Срок годности (гггг-мм-дд) </string>

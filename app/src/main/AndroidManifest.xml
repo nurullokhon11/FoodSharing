@@ -33,8 +33,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".ui.activity.FoodMapActivity"
+            android:label="@string/title_activity_food_map"></activity>
+        <activity
             android:name=".ui.activity.MapActivity"
-            android:label="@string/title_activity_map"></activity>
+            android:label="@string/title_activity_map" />
         <activity android:name=".ui.activity.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

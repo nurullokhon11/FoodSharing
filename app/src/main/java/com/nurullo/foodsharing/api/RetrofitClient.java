@@ -8,7 +8,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
 import com.nurullo.foodsharing.model.requestParams.AuthParams;
 import com.nurullo.foodsharing.model.requestParams.CreateFoodAdPojo;
+import com.nurullo.foodsharing.model.requestParams.FindFoodPojo;
 import com.nurullo.foodsharing.model.requestParams.RegisterParams;
+import com.nurullo.foodsharing.model.requestParams.UpdateFoodAdPojo;
+import com.nurullo.foodsharing.model.requestParams.UpdateUserPojo;
+import com.nurullo.foodsharing.model.response.FoodAdPojo;
 import com.nurullo.foodsharing.model.response.FoodAdsResponse;
 import com.nurullo.foodsharing.model.response.FoodTypePojo;
 import com.nurullo.foodsharing.model.response.UserPojo;
@@ -32,7 +36,7 @@ public class RetrofitClient {
     private static RetrofitClient INSTANCE;
 
     // "https://10.0.2.2:8080/";
-    public static final String BASE_URL = "http://192.168.22.181:8080/";
+    public static final String BASE_URL = "http://192.168.22.181:5000/";
 
     private RetrofitClient(@NonNull final Context context) {
         this.okHttpBuilder = new OkHttpClient.Builder()
@@ -74,16 +78,55 @@ public class RetrofitClient {
         apiService.login(authParams).enqueue(callback);
     }
 
-    public void getFoodAds(final Long type, final Callback<FoodAdsResponse> callback) {
-        apiService.getFoodAds(type).enqueue(callback);
-    }
-
+    /* Food types */
     public void getFoodTypes(final Callback<List<FoodTypePojo>> callback) {
         apiService.getFoodTypes().enqueue(callback);
     }
 
-    public void createFoodAd(final CreateFoodAdPojo createParams, final Callback<ResponseBody> callback) {
+    /* Food ads */
+    public void getFoodAds(final Long type, final Callback<FoodAdsResponse> callback) {
+        apiService.getFoodAds(type).enqueue(callback);
+    }
+
+    public void createFoodAd(final CreateFoodAdPojo createParams, final Callback<FoodAdPojo> callback) {
         apiService.createFoodAd(createParams).enqueue(callback);
+    }
+
+    public void updateFoodAd(String id, final UpdateFoodAdPojo updateFoodAdPojo, final Callback<ResponseBody> callback) {
+        apiService.updateFoodAd(id, updateFoodAdPojo).enqueue(callback);
+    }
+
+    /* User */
+    public void getUserInfo(String id, final Callback<UserPojo> callback) {
+        apiService.getUserInfo(id).enqueue(callback);
+    }
+
+    public void updateUserInfo(String id, final UpdateUserPojo updateUserPojo, final Callback<ResponseBody> callback) {
+        apiService.updateUserInfo(id, updateUserPojo).enqueue(callback);
+    }
+
+    public void addUserAd(String id, final CreateFoodAdPojo createParams, final Callback<ResponseBody> callback) {
+        apiService.addUserAd(id, createParams).enqueue(callback);
+    }
+
+    public void getUserAds(String id, final Callback<List<FoodAdPojo>> callback) {
+        apiService.getFoodAdsByUserId(id).enqueue(callback);
+    }
+
+    public void deleteUserAd(String userId, String adId, final Callback<ResponseBody> callback) {
+        apiService.deleteUserAd(userId, adId).enqueue(callback);
+    }
+
+    public void updateFoodAdByQuery(final FindFoodPojo body, final Callback<ResponseBody> callback) {
+        apiService.updateFoodAdByQuery(body).enqueue(callback);
+    }
+
+    public void updateFoodVisibilityAdByQuery(final FindFoodPojo body, final Callback<ResponseBody> callback) {
+        apiService.changeVisibilityFoodAdByQuery(body).enqueue(callback);
+    }
+
+    public void deleteUserAdByQuery(String userId, final FindFoodPojo body, final Callback<ResponseBody> callback) {
+        apiService.deleteUserAdByQuery(userId, body).enqueue(callback);
     }
 
     private static final String TAG = RetrofitClient.class.toString();

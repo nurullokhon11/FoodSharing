@@ -19,9 +19,11 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.snackbar.Snackbar
 import com.nurullo.foodsharing.R
 import com.nurullo.foodsharing.api.RetrofitClient
 import com.nurullo.foodsharing.model.requestParams.CreateFoodAdPojo
+import com.nurullo.foodsharing.model.response.FoodAdPojo
 import com.nurullo.foodsharing.model.response.FoodTypePojo
 import com.nurullo.foodsharing.repository.FoodTypeRepository
 import com.nurullo.foodsharing.ui.adapter.TypeAdapter
@@ -71,6 +73,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             types = list
             this.foodTypeAdapter.setFoodTypes(types)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        MainActivity.updateNavigationBarState(R.id.navigation_add)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -165,18 +172,19 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             val add = bottomSheetDialog.findViewById<Button>(R.id.add)
 
             add!!.setOnClickListener { view ->
-                if (name!!.text.length < 1) {
+                if (name!!.text.isEmpty()) {
                     name.setError("Введите название продукта")
-                } else if (description!!.text.length < 1) {
+                } else if (description!!.text.isEmpty()) {
                     description.setError("Введите описание продукта")
-                } else if (weight!!.text.length < 1) {
+                } else if (weight!!.text.isEmpty()) {
                     weight.setError("Введите вес продукта")
-                } else if (expDate!!.text.length < 1) {
+                } else if (expDate!!.text.isEmpty()) {
                     expDate.setError("Введите срок годности продукта")
                 } else {
                     RetrofitClient.getInstance(this@MapActivity)
                         .createFoodAd(CreateFoodAdPojo(
                             sm.userId,
+                            sm.username + ' ' + sm.email + ' ' + sm.phone,
                             name.text.toString(),
                             addressText!!.text.toString(),
                             foodType,
@@ -187,23 +195,65 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                             expDate.text.toString(),
                             latlng.latitude.toDouble(),
                             latlng.longitude.toDouble(),
-                            false
-                        ), object : Callback<ResponseBody> {
+                            false,
+                            1
+                        ), object : Callback<FoodAdPojo> {
                             override fun onResponse(
-                                call: Call<ResponseBody>,
-                                response: Response<ResponseBody>
+                                call: Call<FoodAdPojo>,
+                                response: Response<FoodAdPojo>
                             ) {
                                 Toast.makeText(
                                     this@MapActivity,
-                                    "Продукт добавлен!",
+                                    "Продукт добавлен в общую ленту!",
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 bottomSheetDialog.dismiss()
+
+                                RetrofitClient.getInstance(this@MapActivity)
+                                    .addUserAd(sm.userId, CreateFoodAdPojo(
+                                        sm.userId,
+                                        sm.username,
+                                        name.text.toString(),
+                                        addressText.text.toString(),
+                                        foodType,
+                                        typeName,
+                                        weight.text.toString().toLong(),
+                                        description.text.toString(),
+                                        imageUrl.text.toString(),
+                                        expDate.text.toString(),
+                                        latlng.latitude.toDouble(),
+                                        latlng.longitude.toDouble(),
+                                        false,
+                                        1
+                                    ), object : Callback<ResponseBody> {
+                                        override fun onResponse(
+                                            call: Call<ResponseBody>,
+                                            response: Response<ResponseBody>
+                                        ) {
+                                            Toast.makeText(
+                                                this@MapActivity,
+                                                "Продукт добавлен вам!",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                            //bottomSheetDialog.dismiss()
+                                        }
+
+                                        override fun onFailure(
+                                            call: Call<ResponseBody>,
+                                            t: Throwable
+                                        ) {
+                                            t.printStackTrace()
+                                        }
+
+                                    })
                             }
 
-                            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                                Toast.makeText(this@MapActivity, "Ошибка", Toast.LENGTH_SHORT)
-                                    .show()
+                            override fun onFailure(call: Call<FoodAdPojo>, t: Throwable) {
+                                Snackbar.make(
+                                    name,
+                                    "Ошибка!",
+                                    Snackbar.LENGTH_SHORT
+                                ).show()
                             }
 
                         })

@@ -2,6 +2,7 @@ package com.nurullo.foodsharing.ui.adapter
 
 import android.content.Context
 import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,12 +47,18 @@ class FoodAdAdapter(private val mContext: Context, foodListener: FoodListener) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (!sm.userId.equals(foodAds[position].ownerId)) {
             holder.name.setText(foodAds[position].name)
+
+
             val cred: List<String> = foodAds[position].ownerName.split(" ")
-            holder.owner.setText(context.getString(R.string.owner, cred[0]))
+            val text: String = context.getString(R.string.owner, cred[0])
+            val styledText: CharSequence = Html.fromHtml(text)
+            holder.owner.setText(styledText)
             if (cred.size > 1)
-                holder.owner.append("\n почта " + cred[1])
+                holder.owner.append("\nПочта " + cred[1])
             if (cred.size > 2)
-                holder.owner.append("\n номер телефона " + cred[2])
+                holder.owner.append("\nНомер телефона " + cred[2])
+
+
             holder.description.setText(foodAds[position].description)
             holder.address.setText(foodAds[position].address)
             holder.weight.setText(
