@@ -22,6 +22,16 @@
         android:name="com.nurullo.foodsharing.ui.activity.MapActivity"
         android:label="activity_map"
         tools:layout="@layout/activity_map" />
+    <fragment
+        android:id="@+id/cabinetFragment"
+        android:name="com.nurullo.foodsharing.ui.fragment.CabinetFragment"
+        android:label="fragment_cabinet"
+        tools:layout="@layout/fragment_cabinet" />
+    <activity
+        android:id="@+id/foodMapActivity"
+        android:name="com.nurullo.foodsharing.ui.activity.FoodMapActivity"
+        android:label="activity_food_map"
+        tools:layout="@layout/activity_food_map" />
 
 
 </navigation>

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/m_padding"
     android:layout_marginVertical="@dimen/m_padding"
-    app:cardCornerRadius="8dp"
     android:layout_marginBottom="@dimen/m_padding"
-    android:id="@+id/rootview">
+    android:background="@color/white"
+    app:cardCornerRadius="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/s_padding">
+        android:orientation="vertical"
+        android:padding="@dimen/m_padding">
 
         <TextView
             android:id="@+id/textview_food_name"
@@ -37,7 +38,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title_text_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_food_name"/>
+            app:layout_constraintTop_toBottomOf="@id/textview_food_name" />
 
         <TextView
             android:id="@+id/textview_description"
@@ -46,16 +47,13 @@
             android:layout_margin="@dimen/m_padding"
             android:ellipsize="end"
             android:maxLines="4"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_exp_date" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textview_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/m_padding"
+            android:layout_marginStart="@dimen/m_padding"
             android:ellipsize="end"
             android:maxLines="4"
             android:textColor="@color/black"
@@ -137,18 +135,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sep" />
 
-        <Button
-            android:id="@+id/reserve_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/s_padding"
-            app:layout_constraintStart_toStartOf="@id/textview_owner"
-            app:layout_constraintTop_toBottomOf="@id/textview_owner"
-            android:background="@drawable/border"
-            android:textAllCaps="false"
-            android:padding="@dimen/s_padding"
-            android:text="@string/reserve" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -22,9 +22,9 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/navigation_groceries"
-        android:icon="@drawable/ic_groceries"
-        android:title="@string/navigation_groceries"
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_user"
+        android:title="@string/navigation_user"
         app:showAsAction="ifRoom" />
 
     <item

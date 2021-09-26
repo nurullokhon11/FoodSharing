@@ -6,8 +6,7 @@
     android:layout_marginHorizontal="@dimen/m_padding"
     android:layout_marginVertical="@dimen/m_padding"
     app:cardCornerRadius="8dp"
-    android:layout_marginBottom="@dimen/m_padding"
-    android:id="@+id/rootview">
+    android:layout_marginBottom="@dimen/m_padding">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -131,14 +130,13 @@
             android:layout_marginTop="@dimen/s_padding"
             android:drawablePadding="@dimen/text_space"
             android:textAlignment="viewStart"
-            android:text="Владелец Andrew Peters"
             android:textColor="@color/black"
             android:textSize="@dimen/sub_title_text_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sep" />
+            app:layout_constraintTop_toBottomOf="@id/sep"/>
 
         <Button
-            android:id="@+id/reserve_button"
+            android:id="@+id/refuse_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/s_padding"
@@ -147,7 +145,20 @@
             android:background="@drawable/border"
             android:textAllCaps="false"
             android:padding="@dimen/s_padding"
-            android:text="@string/reserve" />
+            android:text="@string/refuse" />
+
+        <Button
+            android:id="@+id/received_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/s_padding"
+            app:layout_constraintTop_toTopOf="@id/refuse_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/refuse_button"
+            android:background="@drawable/border"
+            android:textAllCaps="false"
+            android:padding="@dimen/s_padding"
+            android:text="@string/received" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
