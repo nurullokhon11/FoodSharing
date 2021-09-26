@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.snackbar.Snackbar
@@ -48,25 +49,25 @@ class SignInFragment : Fragment() {
         passwordEditText = v.findViewById(R.id.password_edittext)
         loginBtn = v.findViewById(R.id.signin_button)
 
-//        networkService = RetrofitClient.getInstance(requireContext())
-//        userRepository = UserRepository(requireContext())
-//        userViewModelFactory = UserViewModelFactory(userRepository)
-//        userViewModel = ViewModelProvider(viewModelStore, userViewModelFactory).get(
-//            UserViewModel::class.java
-//        )
-//
-//        userViewModel.successLiveData.observe(viewLifecycleOwner) {
-//            if (it == 1L) {
-//                Snackbar.make(v!!, "Успешно!", Snackbar.LENGTH_SHORT).show()
-//                startActivity(Intent(requireActivity(), MainActivity::class.java).apply {
-//                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-//                })
-//                requireActivity().finish()
-//            } else if (it == 0L) {
-//                Snackbar.make(v!!, "Неправильный логин или пароль", Snackbar.LENGTH_SHORT)
-//                    .show()
-//            }
-        //}
+        networkService = RetrofitClient.getInstance(requireContext())
+        userRepository = UserRepository(requireContext())
+        userViewModelFactory = UserViewModelFactory(userRepository)
+        userViewModel = ViewModelProvider(viewModelStore, userViewModelFactory).get(
+            UserViewModel::class.java
+        )
+
+        userViewModel.successLiveData.observe(viewLifecycleOwner) {
+            if (it == 1L) {
+                Snackbar.make(v!!, "Успешно!", Snackbar.LENGTH_SHORT).show()
+                startActivity(Intent(requireActivity(), MainActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                })
+                requireActivity().finish()
+            } else if (it == 0L) {
+                Snackbar.make(v!!, "Неправильный логин или пароль", Snackbar.LENGTH_SHORT)
+                    .show()
+            }
+        }
         return v
     }
 
@@ -98,6 +99,7 @@ class SignInFragment : Fragment() {
                             sm.saveUsername(response.body()?.username)
                             sm.saveEmail(response.body()?.email)
                             sm.saveNickname(response.body()?.nickname)
+                            sm.savePhone(response.body()?.phone)
 
 
                             startActivity(Intent(requireActivity(), MainActivity::class.java).apply {
