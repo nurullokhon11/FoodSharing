@@ -36,7 +36,7 @@ class TypeAdapter(var mContext: Context) :
             root = LayoutInflater.from(mContext).inflate(R.layout.spinner_view, parent, false)
         }
         val name = root!!.findViewById<TextView>(R.id.text)
-        name.setText(types[position].id.toString() + ". " + types[position].name)
+        name.setText(types[position].name)
         root.tag = types[position].id
         return root
     }
