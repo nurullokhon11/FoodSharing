@@ -112,13 +112,11 @@ class FoodMapActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
                 val cred: List<String> = food.ownerName.split(" ")
-                val text: String = this@FoodMapActivity.getString(R.string.owner, cred[0])
-                val styledText: CharSequence = Html.fromHtml(text)
-                owner.setText(styledText)
+                owner.setText(this@FoodMapActivity.getString(R.string.owner, cred[0]))
                 if (cred.size > 1)
-                    owner.append("\nПочта " + cred[1])
+                    owner.append("\nПочта: " + cred[1])
                 if (cred.size > 2)
-                    owner.append("\nНомер телефона " + cred[2])
+                    owner.append("\nНомер телефона: " + cred[2])
 
 
                 description.setText(food.description)

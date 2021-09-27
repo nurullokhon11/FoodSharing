@@ -50,13 +50,11 @@ class FoodAdAdapter(private val mContext: Context, foodListener: FoodListener) :
 
 
             val cred: List<String> = foodAds[position].ownerName.split(" ")
-            val text: String = context.getString(R.string.owner, cred[0])
-            val styledText: CharSequence = Html.fromHtml(text)
-            holder.owner.setText(styledText)
+            holder.owner.setText(context.getString(R.string.owner, cred[0]))
             if (cred.size > 1)
-                holder.owner.append("\nПочта " + cred[1])
+                holder.owner.append("\nПочта: " + cred[1])
             if (cred.size > 2)
-                holder.owner.append("\nНомер телефона " + cred[2])
+                holder.owner.append("\nНомер телефона: " + cred[2])
 
 
             holder.description.setText(foodAds[position].description)
